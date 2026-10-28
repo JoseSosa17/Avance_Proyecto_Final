@@ -1,1 +1,1 @@
-Repositorio destinado a la creacion de un sistema web para que una barbería gestione sus citas, servicios y barberos, evitando empalmes de horarios.
+Repositorio destinado a la creacion de un sistema integral de venta y gestion de boletos para un mejor control de los eventos en vivo, evitando empalmes de horarios y control de ventas.
