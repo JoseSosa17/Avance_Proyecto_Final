@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telón | Boletos para eventos en vivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="#inicio" class="logo">Telón</a>
+    <nav>
+      <ul class="menu">
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#proximos">Calendario</a></li>
+        <li><a href="#como-comprar">Cómo comprar</a></li>
+        <li><a href="#contacto" class="btn btn-small">Ayuda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="beam beam-1"></div>
+      <div class="beam beam-2"></div>
+      <div class="beam beam-3"></div>
+      <div class="hero-text">
+        <h1>Tu lugar en la primera fila te espera</h1>
+        <p>Conciertos, teatro, deportes y festivales. Elige tu evento, escoge tu zona y recibe tu boleto en el correo.</p>
+        <a href="#eventos" class="btn">Ver eventos</a>
+        <a href="#como-comprar" class="btn btn-ghost">Cómo funciona</a>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <p>Preventa abierta &nbsp;•&nbsp; Boletos con QR &nbsp;•&nbsp; Pago seguro &nbsp;•&nbsp; Cambios hasta 48 h antes &nbsp;•&nbsp; Preventa abierta &nbsp;•&nbsp; Boletos con QR &nbsp;•&nbsp; Pago seguro &nbsp;•&nbsp; Cambios hasta 48 h antes &nbsp;•&nbsp;</p>
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <section class="section">
+      <h2>¿Qué quieres vivir esta noche?</h2>
+      <ul class="chips">
+        <li><a href="#eventos">Conciertos</a></li>
+        <li><a href="#eventos">Teatro</a></li>
+        <li><a href="#eventos">Deportes</a></li>
+        <li><a href="#eventos">Festivales</a></li>
+        <li><a href="#proximos">Todo el mes</a></li>
+      </ul>
+    </section>
+
+    <!-- EVENTOS -->
+    <section class="section" id="eventos">
+      <h2>Eventos destacados</h2>
+      <div class="grid">
+
+        <article class="ticket">
+          <figure class="slot slot-a">
+            <!-- Reemplaza por: <img src="img/concierto.jpg" alt="Concierto"> -->
+            <span class="badge pulse">Últimos boletos</span>
+          </figure>
+          <div class="ticket-body">
+            <h3>Noche de Sintetizadores</h3>
+            <p class="meta">Concierto · Foro Metropolitano</p>
+            <ul class="details">
+              <li>Sábado 21 de noviembre, 20:30 h</li>
+              <li>Acceso desde las 19:00 h</li>
+              <li>Desde $650 MXN</li>
+            </ul>
+            <a href="#comprar" class="btn">Comprar boletos</a>
+          </div>
+        </article>
+
+        <article class="ticket">
+          <figure class="slot slot-b">
+            <!-- Reemplaza por: <img src="img/teatro.jpg" alt="Obra de teatro"> -->
+            <span class="badge">Estreno</span>
+          </figure>
+          <div class="ticket-body">
+            <h3>La Última Función</h3>
+            <p class="meta">Teatro · Teatro del Valle</p>
+            <ul class="details">
+              <li>Viernes 27 de noviembre, 19:00 h</li>
+              <li>Duración: 1 h 45 min</li>
+              <li>Desde $420 MXN</li>
+            </ul>
+            <a href="#comprar" class="btn">Comprar boletos</a>
+          </div>
+        </article>
+
+        <article class="ticket">
+          <figure class="slot slot-c">
+            <!-- Reemplaza por: <img src="img/deportes.jpg" alt="Partido de fútbol"> -->
+            <span class="badge">Clásico</span>
+          </figure>
+          <div class="ticket-body">
+            <h3>Águilas vs. Jaguares</h3>
+            <p class="meta">Deportes · Estadio Norte</p>
+            <ul class="details">
+              <li>Domingo 6 de diciembre, 17:00 h</li>
+              <li>Puertas abren 2 h antes</li>
+              <li>Desde $380 MXN</li>
+            </ul>
+            <a href="#comprar" class="btn">Comprar boletos</a>
+          </div>
+        </article>
+
+        <article class="ticket">
+          <figure class="slot slot-d">
+            <!-- Reemplaza por: <img src="img/festival.jpg" alt="Festival de música"> -->
+            <span class="badge pulse">Agotándose</span>
+          </figure>
+          <div class="ticket-body">
+            <h3>Festival Luz y Tierra</h3>
+            <p class="meta">Festival · Parque Bicentenario</p>
+            <ul class="details">
+              <li>12 y 13 de diciembre, 2 días</li>
+              <li>3 escenarios y zona de comida</li>
+              <li>Desde $1,200 MXN</li>
+            </ul>
+            <a href="#comprar" class="btn">Comprar boletos</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section class="section alt" id="precios">
+      <h2>Zonas y precios: Noche de Sintetizadores</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Precios por zona, impuestos incluidos</caption>
+          <thead>
+            <tr><th>Zona</th><th>Vista</th><th>Precio</th><th>Disponibilidad</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Pista general</td><td>Frente al escenario</td><td>$1,450</td><td><span class="tag low">Pocos</span></td></tr>
+            <tr><td>Platea</td><td>Centro, sentado</td><td>$1,100</td><td><span class="tag mid">Limitado</span></td></tr>
+            <tr><td>Balcón</td><td>Vista elevada</td><td>$820</td><td><span class="tag ok">Disponible</span></td></tr>
+            <tr><td>Gradas</td><td>Lateral</td><td>$650</td><td><span class="tag ok">Disponible</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CALENDARIO -->
+    <section class="section" id="proximos">
+      <h2>Próximos eventos</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Fecha</th><th>Evento</th><th>Tipo</th><th>Sede</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>21 nov</td><td>Noche de Sintetizadores</td><td>Concierto</td><td>Foro Metropolitano</td><td><a href="#comprar">Comprar</a></td></tr>
+            <tr><td>27 nov</td><td>La Última Función</td><td>Teatro</td><td>Teatro del Valle</td><td><a href="#comprar">Comprar</a></td></tr>
+            <tr><td>6 dic</td><td>Águilas vs. Jaguares</td><td>Deportes</td><td>Estadio Norte</td><td><a href="#comprar">Comprar</a></td></tr>
+            <tr><td>12 dic</td><td>Festival Luz y Tierra</td><td>Festival</td><td>Parque Bicentenario</td><td><a href="#comprar">Comprar</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CÓMO COMPRAR -->
+    <section class="section alt" id="como-comprar">
+      <h2>Compra en cuatro pasos</h2>
+      <ol class="steps">
+        <li><strong>Elige tu evento.</strong> Revisa fecha, sede y precio.</li>
+        <li><strong>Escoge tu zona.</strong> Selecciona cuántos boletos necesitas.</li>
+        <li><strong>Paga en línea.</strong> Aceptamos tarjeta, transferencia y pago en tienda.</li>
+        <li><strong>Recibe tu boleto.</strong> Te llega por correo con código QR.</li>
+      </ol>
+      <h3 class="sub">Lo que incluye tu compra</h3>
+      <ul class="checks">
+        <li>Boleto digital con código QR</li>
+        <li>Cambio de fecha hasta 48 horas antes</li>
+        <li>Soporte por chat el día del evento</li>
+      </ul>
+      <p><a href="#comprar" id="comprar" class="btn">Empezar mi compra</a></p>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div>
+      <h3>Telón</h3>
+      <p>Boletos para eventos en vivo.</p>
+    </div>
+    <ul>
+      <li><a href="mailto:ayuda@telon.example">ayuda@telon.example</a></li>
+      <li><a href="tel:+525500000000">55 0000 0000</a></li>
+      <li><a href="#inicio">Volver arriba</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Términos y condiciones</a></li>
+      <li><a href="#">Aviso de privacidad</a></li>
+      <li><a href="#">Política de cambios</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
