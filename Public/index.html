@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TicketPass | Plataforma Digital de Ticketing y Control de Acceso</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="#inicio" class="logo">TicketPass</a>
+    <nav>
+      <ul class="menu">
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#comprar-asientos">Mapa de Asientos</a></li>
+        <li><a href="#acceso-qr">Control Acceso & Promotor</a></li>
+        <li><a href="#como-comprar" class="btn btn-small">Cómo funciona</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="beam beam-1"></div>
+      <div class="beam beam-2"></div>
+      <div class="beam beam-3"></div>
+      <div class="hero-text">
+        <h1>Tu lugar en la primera fila, sin filas ni fraudes</h1>
+        <p>Selección de asientos en tiempo real con bloqueo anti-duplicados, códigos QR dinámicos anti-reventa y comisiones justas (5%) para promotores.</p>
+        <a href="#comprar-asientos" class="btn">Seleccionar Asiento Ahora</a>
+        <a href="#acceso-qr" class="btn btn-ghost">Validador QR Taquilla</a>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <p>Prevención de Race Conditions &nbsp;•&nbsp; Boletos con QR Dinámico (30s) &nbsp;•&nbsp; Cero PDFs Falsificados &nbsp;•&nbsp; Comisión Justa a Promotores &nbsp;•&nbsp; Prevención de Race Conditions &nbsp;•&nbsp; Boletos con QR Dinámico (30s) &nbsp;•&nbsp;</p>
+    </div>
+
+    <!-- CATEGORÍAS (Con filtro interactivo) -->
+    <section class="section">
+      <h2>¿Qué quieres vivir esta noche?</h2>
+      <ul class="chips" id="category-filters">
+        <li><a href="#eventos" data-filter="all" class="active-chip">Todos</a></li>
+        <li><a href="#eventos" data-filter="Concierto">Conciertos</a></li>
+        <li><a href="#eventos" data-filter="Teatro">Teatro</a></li>
+        <li><a href="#eventos" data-filter="Deportes">Deportes</a></li>
+        <li><a href="#eventos" data-filter="Festival">Festivales</a></li>
+      </ul>
+    </section>
+
+    <!-- EVENTOS -->
+    <section class="section" id="eventos">
+      <h2>Eventos destacados</h2>
+      <div class="grid">
+
+        <article class="ticket" data-category="Concierto">
+          <figure class="slot slot-a">
+            <span class="badge pulse">Últimos boletos</span>
+          </figure>
+          <div class="ticket-body">
+            <h3>Noche de Sintetizadores</h3>
+            <p class="meta">Concierto · Foro Metropolitano</p>
+            <ul class="details">
+              <li>Sábado 21 de noviembre, 20:30 h</li>
+              <li>Acceso desde las 19:00 h</li>
+              <li>Desde $650 MXN</li>
+            </ul>
+            <a href="#comprar-asientos" class="btn select-event-btn" data-event-id="1">Elegir asiento</a>
+          </div>
+        </article>
+
+        <article class="ticket" data-category="Teatro">
+          <figure class="slot slot-b">
+            <span class="badge">Estreno</span>
+          </figure>
+          <div class="ticket-body">
+            <h3>La Última Función</h3>
+            <p class="meta">Teatro · Teatro del Valle</p>
+            <ul class="details">
+              <li>Viernes 27 de noviembre, 19:00 h</li>
+              <li>Duración: 1 h 45 min</li>
+              <li>Desde $420 MXN</li>
+            </ul>
+            <a href="#comprar-asientos" class="btn select-event-btn" data-event-id="2">Elegir asiento</a>
+          </div>
+        </article>
+
+        <article class="ticket" data-category="Deportes">
+          <figure class="slot slot-c">
+            <span class="badge">Clásico</span>
+          </figure>
+          <div class="ticket-body">
+            <h3>Águilas vs. Jaguares</h3>
+            <p class="meta">Deportes · Estadio Norte</p>
+            <ul class="details">
+              <li>Domingo 6 de diciembre, 17:00 h</li>
+              <li>Puertas abren 2 h antes</li>
+              <li>Desde $380 MXN</li>
+            </ul>
+            <a href="#comprar-asientos" class="btn select-event-btn" data-event-id="3">Elegir asiento</a>
+          </div>
+        </article>
+
+        <article class="ticket" data-category="Festival">
+          <figure class="slot slot-d">
+            <span class="badge pulse">Agotándose</span>
+          </figure>
+          <div class="ticket-body">
+            <h3>Festival Luz y Tierra</h3>
+            <p class="meta">Festival · Parque Bicentenario</p>
+            <ul class="details">
+              <li>12 y 13 de diciembre, 2 días</li>
+              <li>3 escenarios y zona de comida</li>
+              <li>Desde $1,200 MXN</li>
+            </ul>
+            <a href="#comprar-asientos" class="btn select-event-btn" data-event-id="4">Elegir asiento</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SELECCIÓN INTERACTIVA DE ASIENTOS Y PREVENCIÓN DE CONCURRENCIA -->
+    <section class="section alt" id="comprar-asientos">
+      <h2>Selección de Asientos en Tiempo Real (Anti-Concurrencia)</h2>
+      <div class="interactive-layout">
+        <div>
+          <div class="form-group">
+            <label for="event-selector">Evento activo:</label>
+            <select id="event-selector">
+              <option value="1">Noche de Sintetizadores - Foro Metropolitano</option>
+              <option value="2">La Última Función - Teatro del Valle</option>
+              <option value="3">Águilas vs. Jaguares - Estadio Norte</option>
+              <option value="4">Festival Luz y Tierra - Parque Bicentenario</option>
+            </select>
+          </div>
+
+          <div class="seat-legend">
+            <span><i class="legend-dot" style="background:#fff; border:2px solid #15123a;"></i>Disponible</span>
+            <span><i class="legend-dot" style="background:#ff3d81;"></i>Bloqueado por ti (2 min TTL)</span>
+            <span><i class="legend-dot" style="background:#d98a00;"></i>En proceso por otro usuario</span>
+            <span><i class="legend-dot" style="background:#cfc9f5;"></i>Vendido</span>
+          </div>
+
+          <div class="stage-box">ESCENARIO PRINCIPAL</div>
+          <div id="seat-map" class="seat-grid" aria-live="polite"></div>
+          <p style="margin-top: 12px; font-size: .88rem; color: var(--muted);">
+            * <strong>Prueba de Concurrencia (Race Condition):</strong> Abre esta página en otra ventana de incógnito o usa el botón de simulación para ver cómo el servidor bloquea atómicamente el asiento e impide compras duplicadas.
+          </p>
+          <button type="button" id="simulate-race-btn" class="btn btn-small" style="margin-top:10px; background:var(--night); border-color:var(--night);">
+            Simular otro comprador intentando ganar un asiento
+          </button>
+        </div>
+
+        <div class="checkout-panel">
+          <h3>Resumen de Reserva</h3>
+          <p class="meta" id="lock-timer-display">Selecciona un asiento en el mapa para bloquearlo temporalmente.</p>
+          <div id="concurrency-feedback"></div>
+
+          <form id="checkout-form">
+            <div class="form-group">
+              <label>Asiento bloqueado:</label>
+              <input type="text" id="selected-seat-input" readonly placeholder="Ninguno seleccionado">
+            </div>
+            <div class="form-group">
+              <label>Zona y Precio (Impuestos incluidos):</label>
+              <input type="text" id="selected-price-input" readonly placeholder="$0.00 MXN">
+            </div>
+            <div class="form-group">
+              <label for="buyer-name">Nombre completo del asistente:</label>
+              <input type="text" id="buyer-name" required placeholder="Ej. Alex Rivera">
+            </div>
+            <div class="form-group">
+              <label for="buyer-email">Correo electrónico:</label>
+              <input type="email" id="buyer-email" required placeholder="tu@correo.com">
+            </div>
+            <button type="submit" class="btn" style="width:100%;">Confirmar Pago y Generar QR Dinámico</button>
+          </form>
+
+          <!-- Contenedor del Boleto QR Dinámico generado -->
+          <div id="dynamic-ticket-view" class="qr-box" style="display:none;">
+            <h4>Boleto Digital Activo</h4>
+            <p style="font-size:.85rem; color:var(--muted);">Anti-capturas de pantalla: El código criptográfico se regenera cada 30 segundos.</p>
+            <img id="qr-image" src="" alt="Código QR Dinámico" style="width:180px; height:180px; margin: 12px auto; display:block; border-radius:10px;">
+            <div id="qr-token-text" class="qr-token-code">---</div>
+            <p style="font-weight:700; color:var(--pink);">Nuevo código en: <span id="qr-countdown">30</span>s</p>
+            <button type="button" id="copy-token-btn" class="btn btn-small" style="margin-top:8px;">Copiar Token hacia el Escáner de Puerta</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section class="section" id="precios">
+      <h2>Zonas y precios: Noche de Sintetizadores</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Precios por zona, impuestos incluidos (Comisión justa a promotor: 5%)</caption>
+          <thead>
+            <tr><th>Zona</th><th>Filas</th><th>Vista</th><th>Precio</th><th>Disponibilidad</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Pista general</td><td>Fila A</td><td>Frente al escenario</td><td>$1,430</td><td><span class="tag low">Pocos</span></td></tr>
+            <tr><td>Platea</td><td>Fila B</td><td>Centro, sentado</td><td>$1,105</td><td><span class="tag mid">Limitado</span></td></tr>
+            <tr><td>Balcón</td><td>Fila C</td><td>Vista elevada</td><td>$813</td><td><span class="tag ok">Disponible</span></td></tr>
+            <tr><td>Gradas</td><td>Fila D</td><td>Lateral</td><td>$650</td><td><span class="tag ok">Disponible</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VALIDADOR DE ACCESO (PERSONAL DE TAQUILLA) Y MÉTRICAS PROMOTOR -->
+    <section class="section alt" id="acceso-qr">
+      <h2>Panel de Control de Acceso (Staff) y Promotores</h2>
+
+      <!-- KPIs Promotor -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span>Boletos Vendidos (Tiempo Real)</span>
+          <strong id="kpi-sold">0</strong>
+        </div>
+        <div class="kpi-card">
+          <span>Asientos en Reserva Activa</span>
+          <strong id="kpi-locked">0</strong>
+        </div>
+        <div class="kpi-card">
+          <span>Recaudación Bruta</span>
+          <strong id="kpi-gross">$0</strong>
+        </div>
+        <div class="kpi-card">
+          <span>Pago Neto Promotor (95% libre)</span>
+          <strong id="kpi-net">$0</strong>
+        </div>
+      </div>
+
+      <div class="interactive-layout">
+        <div class="scanner-card">
+          <h3>Escáner Instantáneo de Puerta (Validación TOTP)</h3>
+          <p class="meta">Verifica que el boleto sea auténtico, que su ventana de 30 segundos esté vigente y que no haya sido escaneado antes.</p>
+          <div class="form-group">
+            <label for="scanner-input">Token del Código QR Dinámico:</label>
+            <input type="text" id="scanner-input" placeholder="Ej. TP-A1B2C3D4.5689123.9F8E7D6C5B4A">
+          </div>
+          <button type="button" id="validate-qr-btn" class="btn">Validar Entrada en Puerta</button>
+          <div id="scanner-result"></div>
+        </div>
+
+        <div class="scanner-card">
+          <h3>Calendario de Próximos Eventos</h3>
+          <div class="table-wrap">
+            <table style="min-width:100%;">
+              <thead>
+                <tr><th>Fecha</th><th>Evento</th><th>Sede</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr><td>21 nov</td><td>Noche de Sintetizadores</td><td>Foro Metropolitano</td><td><a href="#comprar-asientos" class="select-event-btn" data-event-id="1">Comprar</a></td></tr>
+                <tr><td>27 nov</td><td>La Última Función</td><td>Teatro del Valle</td><td><a href="#comprar-asientos" class="select-event-btn" data-event-id="2">Comprar</a></td></tr>
+                <tr><td>6 dic</td><td>Águilas vs. Jaguares</td><td>Estadio Norte</td><td><a href="#comprar-asientos" class="select-event-btn" data-event-id="3">Comprar</a></td></tr>
+                <tr><td>12 dic</td><td>Festival Luz y Tierra</td><td>Parque Bicentenario</td><td><a href="#comprar-asientos" class="select-event-btn" data-event-id="4">Comprar</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO COMPRAR -->
+    <section class="section" id="como-comprar">
+      <h2>Compra segura en cuatro pasos</h2>
+      <ol class="steps">
+        <li><strong>Elige tu evento.</strong> Revisa fecha, sede y disponibilidad en vivo.</li>
+        <li><strong>Bloquea tu asiento.</strong> Al tocarlo se reserva para ti durante 2 minutos sin compras duplicadas.</li>
+        <li><strong>Paga en línea.</strong> Transacción atómica sin sobrecargos abusivos.</li>
+        <li><strong>Activa tu QR dinámico.</strong> Se actualiza cada 30 segundos para protegerte contra falsificaciones.</li>
+      </ol>
+      <h3 class="sub">Garantía tecnológica TicketPass</h3>
+      <ul class="checks">
+        <li>Código QR dinámico HMAC-SHA256 anti-capturas de pantalla</li>
+        <li>Bloqueo transaccional contra condiciones de carrera (Race Conditions)</li>
+        <li>Panel transparente en tiempo real para promotores y taquilla</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div>
+      <h3>TicketPass</h3>
+      <p>Plataforma Digital de Ticketing y Control de Acceso.</p>
+    </div>
+    <ul>
+      <li><a href="mailto:soporte@ticketpass.example">soporte@ticketpass.example</a></li>
+      <li><a href="tel:+525500000000">55 0000 0000</a></li>
+      <li><a href="#inicio">Volver arriba</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Términos y condiciones</a></li>
+      <li><a href="#">Aviso de privacidad</a></li>
+      <li><a href="#">Política anti-reventa</a></li>
+    </ul>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
